@@ -25,4 +25,4 @@ function non_template_files() {
 rm -rf "${outdir}"
 mkdir -p "${outdir}"
 template_files | xargs -0 substitute-env-vars.sh "${outdir}"
-non_template_files | xargs -0 -I{} cp -r {} "${outdir}"
+non_template_files | xargs -0 -I{} ln -s {} "${outdir}"
