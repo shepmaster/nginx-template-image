@@ -7,7 +7,7 @@ shift
 files=$@
 
 function fill_in() {
-    perl -p -e 's/\$\{([^}]+)\}/defined $ENV{$1} ? $ENV{$1} : ""/eg' "${1}"
+    perl -p -e 's/\$\{([^}]+)\}/defined $ENV{$1} ? $ENV{$1} : "\${$1}"/eg' "${1}"
 }
 
 function output_filename {
