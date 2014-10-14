@@ -20,7 +20,7 @@ docker run \
   --volume /tmp/nginx-config:/etc/nginx/sites-templates:ro \
   --volume /tmp/nginx-logs:/var/log/nginx \
   --link my-rails-app:rails \
-  nginx
+  shepmaster/nginx-template-image
 ```
 
 ### Example nginx config
