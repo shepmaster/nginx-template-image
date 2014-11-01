@@ -15,12 +15,11 @@ For example:
 
 ```
 docker run \
-  --publish 8080:80 \
-  --publish 8443:443 \
-  --volume /tmp/nginx-config:/etc/nginx/sites-templates:ro \
-  --volume /tmp/nginx-logs:/var/log/nginx \
+  --name nginx \
+  -p 80:80 -p 443:443 \
+  -v /tmp/nginx-config:/etc/nginx/sites-templates:ro \
   --link my-rails-app:rails \
-  shepmaster/nginx-template-image
+  noirvisch/nginx-template-image
 ```
 
 ### Example nginx config
