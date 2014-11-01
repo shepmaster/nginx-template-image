@@ -1,6 +1,7 @@
 FROM nginx
 
 ADD bin/ /usr/sbin/
+ADD static/ /usr/share/nginx/html/
 
 RUN apt-get update &&\
   apt-get upgrade  && \

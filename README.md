@@ -57,7 +57,6 @@ environment variable and have the `.tmpl` suffix removed.
 
 ### Only include .conf files
 
-The default nginx configuration includes all files in `sites-enabled`,
-which makes it difficult to have supplemental files like SSL keys in
-the same directory. This container will only load files that end in
+The default nginx configuration includes all files in `/etc/nginx/conf.d`.
+This container will only load files that end in
 `.conf`.
