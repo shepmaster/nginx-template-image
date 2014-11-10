@@ -1,14 +1,16 @@
-FROM dockerfile/ubuntu
-
-RUN add-apt-repository -y ppa:nginx/stable
-RUN apt-get update
-RUN apt-get install -y nginx
+FROM nginx
 
 ADD bin/ /usr/sbin/
-RUN configure-nginx.sh
+ADD static/ /usr/share/nginx/html/
 
-VOLUME ["/var/log/nginx", "/etc/nginx/sites-templates"]
-EXPOSE 80 443
+RUN apt-get update &&\
+  apt-get upgrade  && \
+  apt-get autoremove -y && \
+  apt-get autoclean -y && \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* &&\
+  configure-nginx.sh
+
+VOLUME ["/etc/nginx/sites-templates"]
 WORKDIR /etc/nginx
 
 ENTRYPOINT ["entrypoint.sh"]
