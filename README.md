@@ -30,6 +30,9 @@ container named `rails`, and should not be treated as an nginx
 configuration guide!
 
 ```
+# mount this as /etc/nginx/sites-templates/cool-app.conf.tmpl
+# will be available as /etc/nginx/sites-enabled/cool-app.conf
+
 server {
   listen       80;
   server_name  my-cool-app.dev;
